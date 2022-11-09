@@ -5,19 +5,24 @@
       <div class="planner-actions">
         <input
           [(ngModel)]="inputValue"
+          (keydown.enter)="addTask()"
           class="task-input"
           type="text"
           placeholder="Add new task..." />
-        <button (click)="addTask()" class="task-add-btn">Add</button>
+        <button [disabled]="!inputValue" (click)="addTask()" class="task-add-btn">Add</button>
       </div>
       <div class="planner-tasks">
         <div
           class="planner-task"
           *ngFor="let task of plannerTasks; let i = index">
           <input [(ngModel)]="task.done" type="checkbox" />
-          <p>{{ task.text }}</p>
+          <p [ngClass]="{ 'task-done': task.done }">{{ task.text }}</p>
           <button (click)="deleteTask(i)">x</button>
         </div>
+      </div>
+
+      <div>
+        You have finished {{ doneTaskCount }} / {{ plannerTasks.length }} tasks
       </div>
     </div>
   </div>

@@ -19,5 +19,9 @@ export class HeaderComponent {
       path: '/register',
       title: 'Register',
     },
+    {
+      path: '/users',
+      title: 'Users',
+    },
   ];
 }

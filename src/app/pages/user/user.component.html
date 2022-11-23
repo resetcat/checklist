@@ -1,0 +1,58 @@
+<section class="user">
+  <div class="user-main" *ngIf="user$ | async as user">
+    <div class="user-left">
+      <div class="user-details-main">
+        <a class="user-name">{{user.name}}</a>
+        <img class="user-image" [src]="'https://picsum.photos/id/' + user.id + '/300/300'" alt="">
+        <div class="user-details">
+          <div class="row">
+            <div class="detail-descr">username:</div>
+            <div class="detail-var">{{user.username}}</div>
+          </div>
+          <div class="row">
+            <div class="detail-descr">email:</div>
+            <div class="detail-var">{{user.email}}</div>
+          </div>
+          <div class="row">
+            <div class="detail-descr">phone:</div>
+            <div
+              class="detail-var">{{user.phone.replace(regex, "").slice(0,10)}}</div>
+          </div>
+          <div class="row">
+            <div class="detail-descr">website:</div>
+            <div class="detail-var">{{user.website}}</div>
+          </div>
+          <div class="row">
+            <div class="detail-descr">company:</div>
+            <div class="detail-var">{{user.company.name}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="company-bs">
+        <img class="quite" src="/assets/images/user-quote-mark.svg" alt="">
+        <div class="bs">{{user.company.bs}}</div>
+      </div>
+    </div>
+    <div class="user-right">
+      <div class="block">
+        <header class="header">Full address</header>
+        <p class="text" ><b>street:</b> {{user.address.street}}</p>
+        <p class="text" ><b>suite:</b> {{user.address.suite}}</p>
+        <p class="text" ><b>city:</b> {{user.address.city}}</p>
+        <p class="text" ><b>zipcode:</b> {{user.address.zipcode}}</p>
+      </div>
+      <div class="block">
+        <header class="header">Geographical location</header>
+        <p class="text" ><b>lat:</b> {{user.address.geo.lat}}</p>
+        <p class="text" ><b>lng:</b> {{user.address.geo.lng}}</p>
+
+      </div>
+      <div class="block">
+        <header class="header">Company</header>
+        <p class="text" ><b>name:</b> {{user.company.name}}</p>
+        <p class="text" ><b>catchphrase:</b> {{user.company.catchPhrase}}</p>
+
+      </div>
+    </div>
+  </div>
+</section>
